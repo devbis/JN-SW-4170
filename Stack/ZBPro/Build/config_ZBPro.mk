@@ -232,15 +232,18 @@ FSL_INPUTMUX_SRC     ?= $(SDK2_BASE_DIR)/platform/drivers/inputmux
 FSL_FMEAS_SRC        ?= $(SDK2_BASE_DIR)/platform/drivers/fmeas
 FSL_EXCEPTIONS_SRC   ?= $(FRAMEWORK_BASE_DIR)/DebugExceptionHandlers_jn518x/src
 DEBUG_FIFO_SRC       ?= $(FRAMEWORK_BASE_DIR)/DebugFifo/Source
+
+JET_BASE  ?= $(TOOL_BASE_DIR)/OTAUtils
 ifeq ($(OS),Windows_NT)
     PDUMCONFIG = $(TOOL_BASE_DIR)/PDUMConfig/bin/PDUMConfig.exe
     ZPSCONFIG  = $(TOOL_BASE_DIR)/ZPSConfig/bin/ZPSConfig.exe
+    JET        = $(JET_BASE)/JET.exe
 else
     PYTHON     ?= /usr/bin/python3
     PDUMCONFIG  = $(PYTHON) $(TOOL_BASE_DIR)/PDUMConfig/linuxbin/PDUMConfig.py
     ZPSCONFIG   = $(PYTHON) $(TOOL_BASE_DIR)/ZPSConfig/linuxbin/ZPSConfig.py
+    JET         = $(PYTHON) $(JET_BASE)/jn_encryption_tool.py
 endif
-JET_BASE            ?= $(SDK2_BASE_DIR)/tools/zigbee_3.0/JET/OTAUtils
 
 ##################################################################################
 ## Source included by default
