@@ -44,8 +44,8 @@ ifeq ($(OS),Windows_NT)
     ZPSCONFIG = $(TOOL_BASE_DIR)/ZPSConfig/bin/ZPSConfig.exe
 else
     PYTHON     ?= /usr/bin/python3
-    PDUMCONFIG  = $(PYTHON) $(TOOL_BASE_DIR)/PDUMConfig/linuxbin/PDUMConfig.py
-    ZPSCONFIG   = $(PYTHON) $(TOOL_BASE_DIR)/ZPSConfig/linuxbin/ZPSConfig.py
+    PDUMCONFIG  = $(PYTHON) $(TOOL_BASE_DIR)/PDUMConfig/bin/PDUMConfig.py
+    ZPSCONFIG   = $(PYTHON) $(TOOL_BASE_DIR)/ZPSConfig/bin/ZPSConfig.py
 endif
 STACK_SIZE ?= 5000
 MINIMUM_HEAP_SIZE ?= 2000
@@ -240,8 +240,8 @@ ifeq ($(OS),Windows_NT)
     JET        = $(JET_BASE)/JET.exe
 else
     PYTHON     ?= /usr/bin/python3
-    PDUMCONFIG  = $(PYTHON) $(TOOL_BASE_DIR)/PDUMConfig/linuxbin/PDUMConfig.py
-    ZPSCONFIG   = $(PYTHON) $(TOOL_BASE_DIR)/ZPSConfig/linuxbin/ZPSConfig.py
+    PDUMCONFIG  = $(PYTHON) $(TOOL_BASE_DIR)/PDUMConfig/bin/PDUMConfig.py
+    ZPSCONFIG   = $(PYTHON) $(TOOL_BASE_DIR)/ZPSConfig/bin/ZPSConfig.py
     JET         = $(PYTHON) $(JET_BASE)/jn_encryption_tool.py
 endif
 
