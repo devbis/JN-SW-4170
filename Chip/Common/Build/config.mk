@@ -120,16 +120,22 @@ OBJCOPY = objcopy
 OBJDUMP = objdump
 RANLIB	= ranlib
 
+ifdef TOOL_COMMON_BASE_DIR
+ifneq (TOOL_COMMON_BASE_DIR,"")
+    TOOLCHAIN_PATH := $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)
+endif
+endif
+
 ifdef CROSS_COMPILE
-CC:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(CC))
-AS:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(AS))
-LD:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(LD))
-AR:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(AR))
-NM:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(NM))
-STRIP:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(STRIP))
-SIZE:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(SIZE))
-OBJCOPY:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(OBJCOPY))
-OBJDUMP:=$(realpath $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(OBJDUMP))
+CC:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(CC))
+AS:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(AS))
+LD:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(LD))
+AR:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(AR))
+NM:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(NM))
+STRIP:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(STRIP))
+SIZE:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(SIZE))
+OBJCOPY:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(OBJCOPY))
+OBJDUMP:=$(realpath $(TOOLCHAIN_PATH)/bin/$(CROSS_COMPILE)-$(OBJDUMP))
 endif
 
 ###############################################################################
